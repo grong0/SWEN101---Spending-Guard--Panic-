@@ -1,0 +1,115 @@
+#login {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-wrapper {
+    display: flex;
+    box-sizing: border-box;
+    gap: 12px;
+}
+
+#login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: var(--element);
+    padding: 24px;
+    border-radius: 12px;
+    width: 400px;
+    height: auto;
+    gap: 24px;
+}
+#logo-wrapper {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+#logo-container {
+    width: min-content;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+#logo-image {
+    aspect-ratio: auto;
+    height: 100px;
+}
+#logo-title {
+    margin-left: auto;
+    vertical-align: center;
+}
+#input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+.login-field, .login-field::placeholder, #input-submit {
+    color: var(--input-text);
+}
+.login-field, #input-submit {
+    border: none;
+    border-radius: 12px;
+    padding: 24px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+
+    height: 32px;
+}
+.login-field {
+    background-color: var(--input);
+    transition: box-shadow 0.1s ease-out;
+}
+.login-field:focus {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    outline: 0;
+}
+#input-submit {
+    margin-top: 6px;
+    background-color: var(--button);
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0px 0px 0px var(--button-secondary);
+    transition: 
+        transform 0.1s ease-out,
+        box-shadow 0.1s ease-out;
+}
+#input-submit:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 6px 9px var(--button-secondary);
+}
+#input-submit:active {
+    transform: scale(0.98);
+    box-shadow: 0px 2px 3px var(--button-secondary);
+}
+#input-submit:focus {
+    outline: 0;
+    /* box-shadow: 0px 4px 6px var(--button-secondary); */
+}
+#input-submit p {
+
+}
+#login-quote-container {
+    width: 300px;
+    background-color: var(--element);
+    padding: 12px;
+    border-radius: 12px;
+}
+#login-quote {
+
+}
+#login-author {
+
+}

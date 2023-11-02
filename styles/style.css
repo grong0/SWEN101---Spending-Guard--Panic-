@@ -1,0 +1,31 @@
+:root {
+    --background: rgb(11, 28, 43);
+    --element: rgb(7,55,99);
+    --input: rgb(11,83,148);
+    --button: rgb(57,136,211);
+    --button-secondary: rgb(109, 184, 255);
+    --alt: rgb(182,215,168);
+    --input-text: white;
+}
+
+h1 {
+    font-family: "Rubik";
+    font-weight: bolder;
+    font-size: 32px;
+}
+
+input, button {
+    font-family: "Rubik";
+    font-weight: bold;
+    font-size: 18px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
