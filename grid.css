@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+}
+
+#nav-bar {
+    background-color: deepskyblue;
+    height: 10vh;
+}
+
+/* Flex box setup
+*/
+
+#body-container {
+    background-color: deepskyblue;
+    height: auto;
+    display: grid;
+    grid-template-columns: 10% 60% 30%;
+}
+
+.body-grid {
+    background-color: whitesmoke;
+    margin: 20px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+/* Login in screen elements
+*/
+
+#login-container {
+    display: grid;
+    flex-direction: row;
+    justify-content:stretch;
+    grid-template-rows: 20% 20% 20%;
+}
+
+#login-container > * {
+    text-align: center;
+    background-color: aquamarine;
+    height: 3em;
+    margin: 5em;
+}
