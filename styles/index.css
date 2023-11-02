@@ -1,0 +1,6 @@
+#nav-bar {
+    position: absolute;
+    width: 100%;
+    height: min-content;
+    padding: 12px;
+}
