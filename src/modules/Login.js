@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Login - Spending Guard</title>
-		<link rel="stylesheet" href="../styles/style.css" />
-		<link rel="stylesheet" href="../styles/login.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-	</head>
-	<body id="login">
-		<div id="login-wrapper">
+import "../styles/Login.css";
+
+function Login() {
+    return (
+        <div id="login-wrapper">
 			<div id="login-container">
 				<div id="logo-wrapper">
                     <div id="logo-container">
@@ -25,14 +16,16 @@
 					<button id="input-submit" type="submit"><p>Login</p></button>
 				</div>
 			</div>
-			<!-- <div id="login-quote-container">
+		    {/* <div id="login-quote-container">
 				<p id="login-quote">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur aperiam in sint
 					suscipit recusandae corrupti excepturi, vel officia minus exercitationem! Cum nulla vitae
 					alias pariatur id veritatis fuga quo et.
                     <span id="login-author">- Burger Van. Hamber</span>
 				</p>
-			</div> -->
+			</div> */}
 		</div>
-	</body>
-</html>
+    )
+}
+
+export default Login;

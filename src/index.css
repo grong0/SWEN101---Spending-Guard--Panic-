@@ -23,9 +23,13 @@ input, button {
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--background);
+    width: 100vw;
+    height: 100vh;
+
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+
+    background-color: var(--background);
     color: white;
 }

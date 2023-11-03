@@ -1,0 +1,40 @@
+.nav-bar {
+    width: 100%;
+    height: min-content;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+#notetaker-wrapper {
+    background-color: var(--element);
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 90% 10%;
+}
+
+#past-notes {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+#post-spacer {
+    width: 100%;
+}
+
+#write-note {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#operation-form {
+
+}
+#operation-select {
+    width: auto;
+}
