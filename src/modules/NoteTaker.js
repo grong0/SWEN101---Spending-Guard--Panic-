@@ -154,6 +154,7 @@ function NoteTaker() {
 					<input
 						id="note-value"
 						type="number"
+                        // TODO: Add decimal supprot based on selected currency
 						// min={1 / Math.pow(10, currencies[currency].decimal_places)}
 						// step={1 / Math.pow(10, currencies[currency].decimal_places)}
 						onChange={(value) => {
