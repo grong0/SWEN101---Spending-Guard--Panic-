@@ -1,5 +1,3 @@
-import '../styles/AnimatedRoutes.css';
-
 import { AnimatePresence } from 'framer-motion';
 import { Route, Routes, useLocation } from 'react-router-dom';
 
@@ -11,7 +9,7 @@ function AnimatedRoutes() {
     return (
         <AnimatePresence>
             <Routes location={location} key={location.pathname}>
-                <Route exact path="/" element={NoteTaker} />
+                <Route exact path="/" element={<NoteTaker />} />
             </Routes>
         </AnimatePresence>
     )

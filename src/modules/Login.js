@@ -11,8 +11,8 @@ function Login() {
                     </div>
 				</div>
 				<div id="input-container">
-					<input class="login-field" placeholder="Username" />
-					<input class="login-field" placeholder="Password" type="password" />
+					<input className="login-field" placeholder="Username" />
+					<input className="login-field" placeholder="Password" type="password" />
 					<button id="input-submit" type="submit"><p>Login</p></button>
 				</div>
 			</div>
