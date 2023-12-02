@@ -34,7 +34,11 @@ const testPosts = {
 function Post(props) {
 	// TODO: Add total currency under amount
 	return (
-		<Joy.Card sx={{ mb: props.workingKey != props.numofPosts-1 ? "8px" : "0px" }} variant="soft" color="primary">
+		<Joy.Card
+			sx={{ mb: props.workingKey != props.numofPosts - 1 ? "8px" : "0px" }}
+			variant="soft"
+			color="primary"
+		>
 			<Joy.CardContent sx={{ display: "flex", flexDirection: "row" }}>
 				<div className="note-left-side">
 					<Joy.Typography level="h2" className="note-currency">
@@ -67,9 +71,18 @@ function NoteTaker() {
 		setCurrencies(currency);
 	}
 
-	const [currency, setCurrency] = useState(Object.keys(currencies)[0]);
+	const [currency, setCurrency] = useState();
+	function updateCurrency(newCurrency) {
+		setCurrency(newCurrency);
+	}
 	const [operation, setOperation] = useState("withdraw");
-	const [amount, setAmount] = useState();
+	function updateOperation(newOperation) {
+		setOperation(newOperation);
+	}
+	const [amount, setAmount] = useState(0);
+	function updateAmount(newAmount) {
+		setAmount(newAmount);
+	}
 
 	const notesRef = useRef();
 	const dummyDivRef = useRef();
@@ -77,7 +90,8 @@ function NoteTaker() {
 	// Handle Cookies
 	function handleSubmit(event) {
 		event.preventDefault();
-		handleNote({ amount, operation, date: new Date().getTime().toString(), currency });
+        
+		handleNote({ amount: amount.toFixed(currencies[currency].decimal_places), operation, date: new Date().getTime().toString(), currency });
 	}
 	function handleNote(note) {
 		// TODO: Handle cookie size restraints
@@ -129,8 +143,8 @@ function NoteTaker() {
 				{Object.keys(posts).map((key, i) => (
 					<Post
 						key={i}
-                        workingKey={i}
-                        numofPosts={Object.keys(posts).length}
+						workingKey={i}
+						numofPosts={Object.keys(posts).length}
 						amount={posts[key].amount}
 						operation={posts[key].operation}
 						date={posts[key].date}
@@ -146,10 +160,11 @@ function NoteTaker() {
 						id="note-currency-select"
 						variant="soft"
 						name="currency"
-                        color="primary"
-                        placeholder="Currency"
+						color="primary"
+						placeholder="Currency"
+						required
 						onChange={(e, value) => {
-							setCurrency(value);
+							updateCurrency(value);
 						}}
 					>
 						{Object.keys(currencies).map((key, i) => (
@@ -162,10 +177,11 @@ function NoteTaker() {
 						id="note-operation-select"
 						variant="soft"
 						name="operation"
-                        color="primary"
-                        placeholder="Operation"
+						color="primary"
+						placeholder="Operation"
+						required
 						onChange={(e, value) => {
-							setOperation(value);
+							updateOperation(value);
 						}}
 					>
 						<Joy.Option value={"withdraw"}>Withdraw</Joy.Option>
@@ -176,11 +192,17 @@ function NoteTaker() {
 					<Joy.Input
 						variant="soft"
 						type="number"
-                        color="primary"
-                        placeholder="Amount"
-						// step={currencies[currency].decimal_places}
+						color="primary"
+						placeholder="Amount"
+						required
+						slotProps={{
+							input: {
+								step: currency != null ? 1 / Math.pow(10, currencies[currency].decimal_places) : 1,
+							},
+						}}
+						startDecorator={currency != null ? currencies[currency].symbol : ""}
 						onChange={(value) => {
-							setAmount(parseFloat(value.target.value));
+							updateAmount(parseFloat(value.target.value));
 						}}
 					/>
 					{/* <Joy.AspectRatio ratio="1" objectFit="cover"> */}
