@@ -1,54 +1,28 @@
 import "../styles/NavHub.css";
 
-import { FaNoteSticky } from "react-icons/fa6";
-
-// function NavElement(props) {
-// 	return (
-// 		<div className="nav-element">
-// 			<div className="nav-icon-wrapper">{props.activeIcon}</div>
-// 			<span className="nav-title">{props.title}</span>
-// 		</div>
-// 	);
-// }
-
-// function NavHub() {
-// 	return (
-// 		<div id="nav-wrapper">
-// 			<div id="nav-hub">
-// 				<NavElement activeIcon={<FaNoteSticky />} inactiveIcon={<FaNoteSticky />} title="Notes" />
-// 				<NavElement activeIcon={<FaNoteSticky />} inactiveIcon={<FaNoteSticky />} title="Notes" />
-//                 <NavElement activeIcon={<FaNoteSticky />} inactiveIcon={<FaNoteSticky />} title="Notes" />
-// 			</div>
-// 		</div>
-// 	);
-// }
-
-// export default NavHub;
-
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import Box from "@mui/joy/Box";
 import ListItemDecorator from "@mui/joy/ListItemDecorator";
 import Tabs from "@mui/joy/Tabs";
 import TabList from "@mui/joy/TabList";
 import Tab, { tabClasses } from "@mui/joy/Tab";
 
-import EditNoteIcon from "@mui/icons-material/EditNote";
+// Notes
 import FeaturedPlayListIcon from "@mui/icons-material/FeaturedPlayList";
 import FeaturedPlayListOutlinedIcon from "@mui/icons-material/FeaturedPlayListOutlined";
 
-import BarChartIcon from "@mui/icons-material/BarChart";
+// Graphs
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import AssessmentOutlinedIcon from "@mui/icons-material/AssessmentOutlined";
 
+// Currency
 import PaymentsIcon from "@mui/icons-material/Payments";
 import PaymentsOutlinedIcon from "@mui/icons-material/PaymentsOutlined";
 
-import Search from "@mui/icons-material/Search";
-import Person from "@mui/icons-material/Person";
-import { Link } from "react-router-dom";
 
 export default function TabsBottomNavExample() {
-	const [index, setIndex] = useState(0);
+	const [index, setIndex] = useState(useLocation().pathname);
 	const colors = ["primary", "danger", "success", "warning"];
 
 	return (
