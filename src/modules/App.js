@@ -8,23 +8,24 @@ import AnimatedRoutes from "./AnimatedRoutes";
 import NavHub from "./NavHub";
 
 const theme = extendTheme({
-    palatte: {
-        background: {
-            default: "#0b1c2b"
-        }
-    },
-    fontFamily: {
-        display: "Rubik, var(--joy-font-fallback)", // applies to `h1`–`h4`
-        body: "Rubik, var(--joy-font-fallback)", // applies to `title-*` and `body-*`
-    }
+	palatte: {
+		background: {
+			default: "#0b1c2b",
+            default: "#ffffff",
+		},
+	},
+	fontFamily: {
+		display: "Rubik, var(--joy-font-fallback)", // applies to `h1`–`h4`
+		body: "Rubik, var(--joy-font-fallback)", // applies to `title-*` and `body-*`
+	},
 });
 
 function App() {
 	const history = createMemoryHistory();
 
 	return (
-		<CssVarsProvider defaultMode="dark" disableNestedContext >
-            <CssBaseLine />
+		<CssVarsProvider defaultMode="dark" disableNestedContext theme={theme}>
+			<CssBaseLine />
 			<Router location={history.location}>
 				<div id="router-content">
 					<AnimatedRoutes />
