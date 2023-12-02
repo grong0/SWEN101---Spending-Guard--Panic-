@@ -19,7 +19,6 @@ import AssessmentOutlinedIcon from "@mui/icons-material/AssessmentOutlined";
 import PaymentsIcon from "@mui/icons-material/Payments";
 import PaymentsOutlinedIcon from "@mui/icons-material/PaymentsOutlined";
 
-
 export default function TabsBottomNavExample() {
 	const [index, setIndex] = useState(useLocation().pathname);
 

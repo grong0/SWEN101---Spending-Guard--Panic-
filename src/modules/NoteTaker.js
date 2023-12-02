@@ -27,7 +27,7 @@ const testPosts = {
 		amount: 30,
 		operation: "deposit",
 		date: 221700258632032,
-		currency: "USD",
+		currency: "usd",
 	},
 };
 
@@ -49,13 +49,18 @@ function Post(props) {
 					</Joy.Typography>
 				</div>
 
-				<Joy.Typography
-					level="h3"
-					sx={{ ml: "auto", alignSelf: "center" }}
-					color={props.operation == "withdraw" ? "danger" : "success"}
-				>
-					{(props.operation == "withdraw" ? "-" : "+") + props.symbol + props.amount}
-				</Joy.Typography>
+				<div className="note-right-side">
+					<Joy.Typography
+						level="h2"
+						sx={{ ml: "auto", alignSelf: "center" }}
+						color={props.operation == "withdraw" ? "danger" : "success"}
+					>
+						{(props.operation == "withdraw" ? "-" : "+") + props.symbol + props.amount}
+					</Joy.Typography>
+					<Joy.Typography level="body-sm" sx={{ alignSelf: "center", float: "right" }}>
+						{props.symbol + props.total}
+					</Joy.Typography>
+				</div>
 			</Joy.CardContent>
 		</Joy.Card>
 	);
@@ -90,8 +95,13 @@ function NoteTaker() {
 	// Handle Cookies
 	function handleSubmit(event) {
 		event.preventDefault();
-        
-		handleNote({ amount: amount.toFixed(currencies[currency].decimal_places), operation, date: new Date().getTime().toString(), currency });
+		handleNote({
+			amount: amount.toFixed(currencies[currency].decimal_places),
+			total: parseFloat(getTotal(currency) + (operation == "withdraw" ? amount * -1 : amount)).toFixed(currencies[currency].decimal_places),
+			operation,
+			date: new Date().getTime().toString(),
+			currency,
+		});
 	}
 	function handleNote(note) {
 		// TODO: Handle cookie size restraints
@@ -103,6 +113,20 @@ function NoteTaker() {
 		currentNotes[note.date] = note;
 		Cookies.set("notes", JSON.stringify(currentNotes));
 		updatePosts(JSON.parse(Cookies.get("notes")));
+	}
+
+	function getTotal(currency) {
+		var total = 0;
+		Object.keys(posts).forEach((postKey) => {
+			if (posts[postKey].currency == currency) {
+				if (posts[postKey].operation == "withdraw") {
+					total -= parseFloat(posts[postKey].amount);
+				} else if (posts[postKey].operation == "deposit") {
+					total += parseFloat(posts[postKey].amount);
+				}
+			}
+		});
+		return total;
 	}
 
 	// Scroll Update Functionality
@@ -150,6 +174,7 @@ function NoteTaker() {
 						date={posts[key].date}
 						currency={currencies[posts[key].currency].acronym}
 						symbol={currencies[posts[key].currency].symbol}
+						total={posts[key].total}
 					/>
 				))}
 				<div style={{ float: "left", clear: "both" }} ref={dummyDivRef}></div>
