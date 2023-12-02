@@ -2,7 +2,6 @@ import "../styles/NavHub.css";
 
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Box from "@mui/joy/Box";
 import ListItemDecorator from "@mui/joy/ListItemDecorator";
 import Tabs from "@mui/joy/Tabs";
 import TabList from "@mui/joy/TabList";
@@ -23,7 +22,6 @@ import PaymentsOutlinedIcon from "@mui/icons-material/PaymentsOutlined";
 
 export default function TabsBottomNavExample() {
 	const [index, setIndex] = useState(useLocation().pathname);
-	const colors = ["primary", "danger", "success", "warning"];
 
 	return (
 		<div id="nav-wrapper">
