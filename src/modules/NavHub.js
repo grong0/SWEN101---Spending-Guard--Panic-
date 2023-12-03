@@ -56,40 +56,40 @@ export default function TabsBottomNavExample() {
 				>
 					{/* <Tab
 						disableIndicator
-						value="/graph"
-						to="/graph"
+						value="/SWEN101---Spending-Guard--Panic-/graph"
+						to="/SWEN101---Spending-Guard--Panic-/graph"
 						component={Link}
 						orientation="vertical"
 						color="primary"
 					>
 						<ListItemDecorator>
-							{index == "/graph" ? <AssessmentIcon /> : <AssessmentOutlinedIcon />}
+							{index == "/SWEN101---Spending-Guard--Panic-/graph" ? <AssessmentIcon /> : <AssessmentOutlinedIcon />}
 						</ListItemDecorator>
 						Graphs
 					</Tab> */}
 					<Tab
 						disableIndicator
-						value="/"
-						to="/"
+						value="/SWEN101---Spending-Guard--Panic-/"
+						to="/SWEN101---Spending-Guard--Panic-/"
 						component={Link}
 						orientation="vertical"
 						color="primary"
 					>
 						<ListItemDecorator>
-							{index == "/" ? <FeaturedPlayListIcon /> : <FeaturedPlayListOutlinedIcon />}
+							{index == "/SWEN101---Spending-Guard--Panic-/" ? <FeaturedPlayListIcon /> : <FeaturedPlayListOutlinedIcon />}
 						</ListItemDecorator>
 						Notes
 					</Tab>
 					<Tab
 						disableIndicator
-						value="/currency"
-						to="/currency"
+						value="/SWEN101---Spending-Guard--Panic-/currency"
+						to="/SWEN101---Spending-Guard--Panic-/currency"
 						component={Link}
 						orientation="vertical"
 						color="primary"
 					>
 						<ListItemDecorator>
-							{index == "/currency" ? <PaymentsIcon /> : <PaymentsOutlinedIcon />}
+							{index == "/SWEN101---Spending-Guard--Panic-/currency" ? <PaymentsIcon /> : <PaymentsOutlinedIcon />}
 						</ListItemDecorator>
 						Currencies
 					</Tab>

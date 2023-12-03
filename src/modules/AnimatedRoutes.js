@@ -7,13 +7,15 @@ import Currency from "./Currency.js";
 
 function AnimatedRoutes() {
 	var location = useLocation();
+	console.log(location);
+	console.log(location.pathname);
 
 	return (
 		<AnimatePresence>
 			<Routes location={location} key={location.pathname}>
-				<Route exact path="/" element={<NoteTaker />} />
-				<Route path="/graph" element={<GraphViewer />} />
-                <Route path="/currency" element={<Currency />} />
+				<Route exact path="/SWEN101---Spending-Guard--Panic-/" element={<NoteTaker />} />
+				<Route path="/SWEN101---Spending-Guard--Panic-/graph" element={<GraphViewer />} />
+				<Route path="/SWEN101---Spending-Guard--Panic-/currency" element={<Currency />} />
 			</Routes>
 		</AnimatePresence>
 	);
