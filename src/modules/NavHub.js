@@ -54,7 +54,7 @@ export default function TabsBottomNavExample() {
 					sx={{ borderRadius: "lg", p: 0 }}
 					color="primary"
 				>
-					<Tab
+					{/* <Tab
 						disableIndicator
 						value="/graph"
 						to="/graph"
@@ -66,7 +66,7 @@ export default function TabsBottomNavExample() {
 							{index == "/graph" ? <AssessmentIcon /> : <AssessmentOutlinedIcon />}
 						</ListItemDecorator>
 						Graphs
-					</Tab>
+					</Tab> */}
 					<Tab
 						disableIndicator
 						value="/"
@@ -91,7 +91,7 @@ export default function TabsBottomNavExample() {
 						<ListItemDecorator>
 							{index == "/currency" ? <PaymentsIcon /> : <PaymentsOutlinedIcon />}
 						</ListItemDecorator>
-						Currency
+						Currencies
 					</Tab>
 				</TabList>
 			</Tabs>

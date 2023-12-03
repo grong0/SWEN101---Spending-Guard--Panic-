@@ -3,24 +3,7 @@ import "../styles/NoteTaker.css";
 import { FaArrowRight } from "react-icons/fa";
 import Cookies from "js-cookie";
 import * as Joy from "@mui/joy";
-
-// TODO: Track total currency
-const defualtCurrencies = {
-	usd: {
-		name: "United States Dollar",
-		acronym: "USD",
-		symbol: "$",
-		decimal_places: 2,
-		total: 0,
-	},
-	// mc: {
-	// 	name: "MineCoin",
-	// 	acronym: "MC",
-	// 	symbol: "",
-	// 	decimal_places: 0,
-	// 	total: 0,
-	// },
-};
+import DefaultCurrencies from "./DefaultCurrencies";
 
 const testPosts = {
 	1700258632032: {
@@ -32,7 +15,6 @@ const testPosts = {
 };
 
 function Post(props) {
-	// TODO: Add total currency under amount
 	return (
 		<Joy.Card
 			sx={{ mb: props.workingKey != props.numofPosts - 1 ? "8px" : "0px" }}
@@ -71,7 +53,7 @@ function NoteTaker() {
 	function updatePosts(note) {
 		setPosts(note);
 	}
-	const [currencies, setCurrencies] = useState(defualtCurrencies);
+	const [currencies, setCurrencies] = useState({});
 	function updateCurrencies(currency) {
 		setCurrencies(currency);
 	}
@@ -146,19 +128,11 @@ function NoteTaker() {
 
 		if (Cookies.get("currencies") === undefined) {
 			console.log("creating new currencies");
-			Cookies.set("currencies", JSON.stringify(currencies));
+			Cookies.set("currencies", JSON.stringify(DefaultCurrencies));
 		}
 
 		updatePosts(JSON.parse(Cookies.get("notes")));
 		updateCurrencies(JSON.parse(Cookies.get("currencies")));
-
-		// Object.keys(posts).forEach((key) => {
-		//     currencies[posts[key].currency.toLowerCase].total += posts[key].amount
-		// })
-
-		// Object.keys(posts).map((key, i) => {
-		// 	console.log(key);
-		// });
 	}, []);
 
 	return (
@@ -230,11 +204,9 @@ function NoteTaker() {
 							updateAmount(parseFloat(value.target.value));
 						}}
 					/>
-					{/* <Joy.AspectRatio ratio="1" objectFit="cover"> */}
 					<Joy.IconButton color="primary" variant="soft" type="submit">
 						<FaArrowRight />
 					</Joy.IconButton>
-					{/* </Joy.AspectRatio> */}
 				</div>
 			</form>
 		</div>
