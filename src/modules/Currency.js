@@ -63,7 +63,7 @@ function EditCurrency(props) {
 	function handleCurrency(newCurrency) {
 		var currentCurrencies = Cookies.get("currencies");
 		if (currentCurrencies === null) {
-			currentCurrencies = JSON.stringify({});
+			Cookies.set("currencies", JSON.stringify({}));
 		}
 		currentCurrencies = JSON.parse(currentCurrencies);
 		if (
@@ -81,9 +81,20 @@ function EditCurrency(props) {
 		} else {
 			if (currencies != undefined) {
 				delete currentCurrencies[currencies[currency].acronym.toLowerCase()];
+				var posts = JSON.parse(Cookies.get("notes"));
+				console.log("old currency: " + currency);
+				console.log("new currency: " + newCurrency.acronym);
+				Object.keys(posts).forEach((key) => {
+					if (posts[key].currency === currency) {
+						posts[key].currency = newCurrency.acronym.toLowerCase();
+					}
+				});
+				console.log("new notes: ");
+				console.log(posts);
+				Cookies.set("notes", JSON.stringify(posts));
 			}
 			currentCurrencies[newCurrency.acronym.toLowerCase()] = newCurrency;
-			console.log(currentCurrencies);
+			Cookies.set("currencies", JSON.stringify(currentCurrencies));
 			if (currencies != undefined) {
 				updateCurrencies(JSON.parse(Cookies.get("currencies")));
 				updateCurrency(newCurrency.acronym.toLowerCase());
@@ -133,7 +144,7 @@ function EditCurrency(props) {
 					<Joy.Typography level="h3">No Custom Currencies</Joy.Typography>
 					<Joy.CardContent>
 						<Joy.Typography level="body-md">
-							You have no custom currencies. Create a new one at in the{" "}
+							You have no custom currencies. Create a new one in the{" "}
 							<Joy.Typography variant="soft" color="primary">
 								Create New
 							</Joy.Typography>{" "}
@@ -149,7 +160,7 @@ function EditCurrency(props) {
 								<Joy.Select
 									placeholder="Currency to edit"
 									variant="soft"
-                                    value={currency}
+									value={currency}
 									onChange={(e, value) => {
 										updateCurrency(value);
 									}}

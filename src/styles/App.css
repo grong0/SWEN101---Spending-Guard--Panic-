@@ -1,10 +1,12 @@
 #router-content {
-    width: 100vw;
-    height: 100vh;
+    width: 375px;
+    height: 667px;
     
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto min-content;
 
     overflow: hidden;
+
+    background-color: var(--background);
 }

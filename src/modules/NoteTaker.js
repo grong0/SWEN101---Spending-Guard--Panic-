@@ -37,10 +37,10 @@ function Post(props) {
 						sx={{ ml: "auto", alignSelf: "center" }}
 						color={props.operation == "withdraw" ? "danger" : "success"}
 					>
-						{(props.operation == "withdraw" ? "-" : "+") + props.symbol + props.amount}
+						{(props.operation == "withdraw" ? "-" : "+") + props.symbol + props.amount.toFixed(props.decimal_places)}
 					</Joy.Typography>
 					<Joy.Typography level="body-sm" sx={{ alignSelf: "center", float: "right" }}>
-						{props.symbol + props.total}
+						{props.symbol + props.total.toFixed(props.decimal_places)}
 					</Joy.Typography>
 				</div>
 			</Joy.CardContent>
@@ -78,8 +78,8 @@ function NoteTaker() {
 	function handleSubmit(event) {
 		event.preventDefault();
 		handleNote({
-			amount: amount.toFixed(currencies[currency].decimal_places),
-			total: parseFloat(getTotal(currency) + (operation == "withdraw" ? amount * -1 : amount)).toFixed(currencies[currency].decimal_places),
+			amount,
+			total: parseFloat(getTotal(currency) + (operation == "withdraw" ? amount * -1 : amount)),
 			operation,
 			date: new Date().getTime().toString(),
 			currency,
@@ -149,6 +149,7 @@ function NoteTaker() {
 						currency={currencies[posts[key].currency].acronym}
 						symbol={currencies[posts[key].currency].symbol}
 						total={posts[key].total}
+                        decimal_places={currencies[posts[key].currency].decimal_places}
 					/>
 				))}
 				<div style={{ float: "left", clear: "both" }} ref={dummyDivRef}></div>
