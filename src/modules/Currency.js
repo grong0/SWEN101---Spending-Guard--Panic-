@@ -78,6 +78,9 @@ function EditCurrency(props) {
 		) {
 			updateError("danger");
 			updateHelperText("A currency with the name '" + newCurrency.name + "' already exists.");
+		} else if (newCurrency.decimal_places < 0 || newCurrency.decimal_places > 100) {
+			updateError("danger");
+			updateHelperText("A currency's decimal points must be inbetween 0 and 100");
 		} else {
 			if (currencies != undefined) {
 				delete currentCurrencies[currencies[currency].acronym.toLowerCase()];
