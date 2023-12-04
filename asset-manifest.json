@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/SWEN101---Spending-Guard--Panic-/static/css/main.713f3ae7.css",
+    "main.css": "/SWEN101---Spending-Guard--Panic-/static/css/main.2a7ea3d4.css",
     "main.js": "/SWEN101---Spending-Guard--Panic-/static/js/main.1847d2de.js",
     "index.html": "/SWEN101---Spending-Guard--Panic-/index.html",
-    "main.713f3ae7.css.map": "/SWEN101---Spending-Guard--Panic-/static/css/main.713f3ae7.css.map",
+    "main.2a7ea3d4.css.map": "/SWEN101---Spending-Guard--Panic-/static/css/main.2a7ea3d4.css.map",
     "main.1847d2de.js.map": "/SWEN101---Spending-Guard--Panic-/static/js/main.1847d2de.js.map"
   },
   "entrypoints": [
-    "static/css/main.713f3ae7.css",
+    "static/css/main.2a7ea3d4.css",
     "static/js/main.1847d2de.js"
   ]
 }
