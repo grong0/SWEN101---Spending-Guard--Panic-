@@ -72,7 +72,7 @@ export default function TabsBottomNavExample() {
 						value="/SWEN101---Spending-Guard--Panic-/"
 						to="/SWEN101---Spending-Guard--Panic-/"
 						component={Link}
-						orientation="vertical"
+						orientation="vertical" 
 						color="primary"
 					>
 						<ListItemDecorator>
