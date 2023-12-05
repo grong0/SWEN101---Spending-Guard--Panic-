@@ -227,16 +227,20 @@ function EditCurrency(props) {
 						<Joy.Button color={error} variant="soft" type="submit">
 							{currencies == null ? "Create" : "Edit"}
 						</Joy.Button>
-						<Joy.FormHelperText>
-							{error == "danger" ? (
-								<JoyIcons.InfoOutlined />
-							) : error == "success" ? (
-								<JoyIcons.CheckCircleOutlineRounded />
-							) : (
-								""
-							)}
-							{helperText}
-						</Joy.FormHelperText>
+						{error != "primary" ? (
+							<Joy.FormHelperText>
+								{error == "danger" ? (
+									<JoyIcons.InfoOutlined />
+								) : error == "success" ? (
+									<JoyIcons.CheckCircleOutlineRounded />
+								) : (
+									""
+								)}
+								{helperText}
+							</Joy.FormHelperText>
+						) : (
+							console.log("")
+						)}
 					</Joy.FormControl>
 				</form>
 			)}
